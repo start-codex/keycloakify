@@ -13,9 +13,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
-              with:
-                node-version: '20'
-            - run: npm ci
+            - uses: bahmutov/npm-install@v1
             - run: npm run build-keycloak-theme
 
     check_if_version_upgraded:
@@ -42,9 +40,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
-              with:
-                node-version: '20'
-            - run: npm ci
+            - uses: bahmutov/npm-install@v1
             - run: npm run build-keycloak-theme
             - uses: softprops/action-gh-release@v2
               with:
