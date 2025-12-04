@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0
+    container_name: keycloak-lab
+    environment:
+      # Credenciales de administrador
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin123
+      # Configuración de desarrollo
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
+    volumes:
+      # Montar el JAR del tema generado por Keycloakify
+      - ./dist_keycloak:/opt/keycloak/providers
+    ports:
+      - "8080:8080"
+    command:
+      - start-dev
+      - --spi-theme-static-max-age=-1
+      - --spi-theme-cache-themes=false
+      - --spi-theme-cache-templates=false
+    networks:
+      - keycloak-network
+
+networks:
+  keycloak-network:
+    driver: bridge

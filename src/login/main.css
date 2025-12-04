@@ -1,0 +1,448 @@
+@import "tailwindcss";
+
+/* Fondo con imagen de Unsplash */
+body.kcBodyClass {
+    background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    @apply min-h-screen;
+}
+
+/* Overlay oscuro sobre la imagen */
+body.kcBodyClass::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* Contenedor principal */
+.login-pf-page {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card - negro sólido con efecto flotante */
+.login-pf-page .card-pf {
+    background: rgb(41, 41, 41) !important;
+    border: 1px solid rgb(60, 60, 60) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 12px 24px -8px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    @apply rounded-2xl;
+}
+
+/* Header del formulario */
+#kc-header-wrapper {
+    @apply text-white text-2xl font-bold text-center mb-4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Título dentro del card */
+#kc-page-title {
+    @apply text-white text-xl font-semibold text-center;
+}
+
+/* Labels */
+.kcLabelClass {
+    @apply text-white font-medium mb-2;
+}
+
+/* Inputs - todos los tipos */
+.kcInputClass,
+.kcTextareaClass,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+.pf-v5-c-form-control,
+.pf-c-form-control,
+.pf-c-input-group input,
+.kcInputGroup input,
+#code,
+.form-control {
+    background: #1a1a1a !important;
+    border: 1px solid #3a3a3a !important;
+    color: white !important;
+    @apply w-full p-3 rounded-lg transition-all;
+}
+
+.kcInputClass:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+.pf-v5-c-form-control:focus,
+.pf-c-form-control:focus,
+.pf-c-input-group input:focus,
+.kcInputGroup input:focus {
+    background: #222222 !important;
+    border-color: #505050 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+}
+
+.kcInputClass::placeholder,
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Input group container */
+.pf-c-input-group,
+.kcInputGroup {
+    background: #1a1a1a !important;
+    border: 1px solid #3a3a3a !important;
+    @apply rounded-lg overflow-hidden;
+}
+
+.pf-c-input-group input,
+.kcInputGroup input {
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Botón mostrar password */
+.kcFormPasswordVisibilityButtonClass,
+.pf-c-button.pf-m-control,
+.pf-c-input-group > .pf-c-button,
+.kcInputGroup > button {
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: white !important;
+}
+
+.kcFormPasswordVisibilityButtonClass:focus,
+.pf-c-button.pf-m-control:focus,
+.kcFormPasswordVisibilityButtonClass:active,
+.pf-c-button.pf-m-control:active {
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.kcFormPasswordVisibilityButtonClass::before,
+.kcFormPasswordVisibilityButtonClass::after,
+.pf-c-button.pf-m-control::before,
+.pf-c-button.pf-m-control::after {
+    display: none !important;
+}
+
+.kcFormPasswordVisibilityButtonClass i,
+.pf-c-button.pf-m-control i {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.kcFormPasswordVisibilityButtonClass:hover i,
+.pf-c-button.pf-m-control:hover i {
+    color: white !important;
+}
+
+/* Username / Email mostrado */
+#kc-username {
+    @apply text-center mb-4;
+}
+
+#kc-attempted-username {
+    @apply text-white text-lg font-medium;
+}
+
+#reset-login {
+    @apply ml-2;
+}
+
+#reset-login i,
+.kcResetFlowIcon {
+    color: #9e1322 !important;
+}
+
+#reset-login:hover i,
+#reset-login:hover .kcResetFlowIcon {
+    color: #f87171 !important;
+}
+
+.kc-login-tooltip {
+    @apply inline-block;
+}
+
+.kc-tooltip-text {
+    @apply hidden;
+}
+
+/* Botón principal - rojo oscuro */
+.kcButtonPrimaryClass {
+    background: #9e1322 !important;
+    border: none !important;
+    color: #ffffff !important;
+    @apply w-full py-3 px-6 rounded-lg font-semibold transition-all;
+}
+
+.kcButtonPrimaryClass:hover {
+    background: #b91c2c !important;
+    @apply transform -translate-y-0.5 shadow-lg;
+}
+
+/* Botón secundario / default */
+.kcButtonDefaultClass,
+.kcButtonClass.btn-default,
+.pf-c-button.pf-m-secondary,
+#authenticateWebAuthnButton {
+    background: #1a1a1a !important;
+    border: 1px solid #3a3a3a !important;
+    color: white !important;
+    margin-top: 0.75rem !important;
+    @apply w-full py-3 px-6 rounded-lg font-semibold transition-all;
+}
+
+.kcButtonDefaultClass:hover,
+.kcButtonClass.btn-default:hover,
+.pf-c-button.pf-m-secondary:hover,
+#authenticateWebAuthnButton:hover {
+    background: #2a2a2a !important;
+    border-color: #4a4a4a !important;
+}
+
+/* Contenedor de botones */
+#kc-form-buttons,
+.kcFormButtonsClass {
+    @apply space-y-3;
+}
+
+/* Links - rojo */
+.kcFormOptionsWrapperClass a,
+#kc-registration a,
+#kc-info a,
+#kc-page-title a,
+#kc-content a,
+#kc-code a,
+#error a,
+.card-pf a {
+    color: #f87171 !important;
+    @apply font-medium hover:underline transition-all;
+}
+
+.kcFormOptionsWrapperClass a:hover,
+#kc-registration a:hover,
+#kc-info a:hover,
+#kc-page-title a:hover,
+#kc-content a:hover,
+#kc-code a:hover,
+#error a:hover,
+.card-pf a:hover {
+    color: #fca5a5 !important;
+}
+
+/* Textos adicionales */
+#kc-info-wrapper,
+.kcFormOptionsWrapperClass {
+    @apply text-white/80;
+}
+
+/* Checkbox y Remember me */
+.kcCheckboxInputClass {
+    @apply accent-indigo-500;
+}
+
+#kc-form-options,
+#kc-form-options label,
+#kc-form-options span,
+.checkbox label,
+.pf-v5-c-check__label,
+.pf-c-check__label {
+    @apply text-white/80;
+}
+
+/* Franja inferior del card */
+.card-pf .card-pf-footer,
+.card-pf-body + div,
+#kc-info,
+#kc-registration,
+.kcSignUpClass,
+.login-pf-signup,
+.kcInfoAreaWrapperClass,
+#kc-info-wrapper,
+#kc-registration-container {
+    background: transparent !important;
+    border-top: none !important;
+}
+
+#kc-info.kcSignUpClass {
+    background: rgb(41, 41, 41) !important;
+    border-top: 1px solid rgb(60, 60, 60) !important;
+    @apply rounded-b-2xl mt-4 py-4;
+}
+
+/* Icono del ojo en password */
+.pf-v5-c-button.pf-m-control,
+.pf-c-button.pf-m-control,
+button[type="button"] {
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+}
+
+/* Mensajes de alerta - base */
+.kcAlertClass,
+.pf-c-alert,
+.alert-info,
+.alert-error,
+.alert-success,
+.alert-warning {
+    box-shadow: none !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+    @apply text-white rounded-lg p-3;
+}
+
+/* Alerta de error/danger */
+.kcAlertClass.pf-m-danger,
+.pf-c-alert.pf-m-danger,
+.alert-error {
+    background: rgba(158, 19, 34, 0.2) !important;
+    border: 1px solid #9e1322 !important;
+}
+
+/* Alerta de éxito */
+.kcAlertClass.pf-m-success,
+.pf-c-alert.pf-m-success,
+.alert-success {
+    background: rgba(22, 163, 74, 0.2) !important;
+    border: 1px solid #16a34a !important;
+}
+
+/* Alerta de info */
+.kcAlertClass.pf-m-info,
+.pf-c-alert.pf-m-info,
+.alert-info {
+    background: rgba(59, 130, 246, 0.15) !important;
+    border: 1px solid #3b82f6 !important;
+}
+
+/* Alerta warning */
+.kcAlertClass.pf-m-warning,
+.pf-c-alert.pf-m-warning,
+.alert-warning {
+    background: rgba(245, 158, 11, 0.2) !important;
+    border: 1px solid #f59e0b !important;
+}
+
+/* Texto de alertas */
+.kcAlertTitleClass,
+.pf-c-alert__title,
+.kc-feedback-text {
+    color: white !important;
+}
+
+/* Icono de alertas */
+.pf-c-alert__icon,
+.kcFeedbackInfoIcon,
+.pf-c-alert__icon span,
+.pf-c-alert__icon i {
+    color: white !important;
+}
+
+/* OTP Tiles / Selector de credenciales */
+.kcLoginOTPListClass,
+.pf-c-tile {
+    background: #1a1a1a !important;
+    border: 1px solid #3a3a3a !important;
+    color: white !important;
+    @apply rounded-lg p-4 cursor-pointer transition-all;
+}
+
+.kcLoginOTPListClass:hover,
+.pf-c-tile:hover {
+    background: #2a2a2a !important;
+    border-color: #4a4a4a !important;
+}
+
+.kcLoginOTPListInputClass:checked + .kcLoginOTPListClass,
+.pf-c-tile__input:checked + .pf-c-tile {
+    background: #2a2a2a !important;
+    border-color: #9e1322 !important;
+}
+
+.kcLoginOTPListItemTitleClass,
+.pf-c-tile__title {
+    color: white !important;
+}
+
+.kcLoginOTPListItemIconClass,
+.pf-c-tile__icon i {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Ocultar radio buttons nativos */
+.kcLoginOTPListInputClass,
+.pf-c-tile__input {
+    @apply sr-only;
+}
+
+/* Select authenticator list */
+.kcSelectAuthListClass,
+.select-auth-container {
+    @apply space-y-2;
+}
+
+.kcSelectAuthListItemClass,
+.select-auth-box-parent {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #3a3a3a !important;
+    color: white !important;
+    @apply w-full p-4 text-left transition-all;
+}
+
+.kcSelectAuthListItemClass:hover,
+.select-auth-box-parent:hover {
+    background: #1a1a1a !important;
+    border-radius: 8px !important;
+}
+
+.kcSelectAuthListItemClass:last-child,
+.select-auth-box-parent:last-child {
+    border-bottom: none !important;
+}
+
+/* Títulos de opciones */
+.kcSelectAuthListItemHeadingClass,
+.select-auth-box-headline,
+.pf-c-title {
+    color: #f87171 !important;
+    @apply font-semibold mb-1;
+}
+
+/* Descripciones */
+.kcSelectAuthListItemDescriptionClass,
+.select-auth-box-desc {
+    color: rgba(255, 255, 255, 0.7) !important;
+    @apply text-sm;
+}
+
+/* Iconos */
+.kcSelectAuthListItemIconClass,
+.select-auth-box-icon i,
+.kcSelectAuthListItemIconPropertyClass {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Flecha */
+.kcSelectAuthListItemArrowIconClass,
+.select-auth-box-arrow i {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Línea separadora hr */
+hr {
+    border: none !important;
+    border-top: 1px solid #3a3a3a !important;
+    margin: 1rem 0 !important;
+}
+
